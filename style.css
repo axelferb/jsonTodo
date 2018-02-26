@@ -1,0 +1,50 @@
+body {
+    margin: 0 auto;
+}
+
+h1 {
+    margin: 0 auto;
+}
+
+.bodyholder {
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: 1fr 4fr;
+}
+
+#boxholder {
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: firebrick;
+    color: white;
+    min-height: 100px;  
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: indianred;
+    color: white;
+    height: 100px;
+}
+
+.sidebar {
+    background: firebrick;
+    color: white;
+    min-height: calc(100vh - 100px);
+    max-height: 100%;
+}
+
+.sidebaritem {
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
