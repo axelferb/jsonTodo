@@ -2,29 +2,32 @@ const input = document.getElementById("input");
 const button = document.getElementById("knapp");
 const completebutton = document.getElementsByClassName("completebutton");
 
+// FUNCTION TO WRITE TODOS //
+function writeTodos(jsonData) {
+    for (var todo of jsonData) {
+        boxholder.innerHTML +=
+            `
+    <div class="box">
+    ${todo.text}
+    ${todo.complete}
+    <button class="completebutton">True/False</button>
+    </div>
+    `;
+    }
+};
+//
+
 // GET //
 fetch('http://fed17.herokuapp.com/todos')
     .then(function (response) {
         return response.json();
     })
     .then(function (jsonData) {
-        for (var newBox of jsonData) {
-            boxholder.innerHTML +=
-                `
-        <div class="box">
-        ${newBox.text}
-        ${newBox.complete}
-        <button class="completebutton">True/False</button>
-        </div>
-        `;
-            // completebutton.addEventListener("click", function () {
-            //     body: JSON.stringify({ complete: true })
-            // });
-        }
-        console.log(newBox.complete);
+        writeTodos(jsonData);
     });
 //
-//POST
+
+// POST //
 button.addEventListener("click", function () {
     const postOptions = {
         method: 'POST',
